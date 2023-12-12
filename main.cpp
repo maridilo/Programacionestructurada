@@ -1,5 +1,8 @@
 #include<iostream>
 #include<string>
+#include<cstring>
+#include<cstdio>
+#include<cstdlib>
 
 using namespace std;
 
@@ -21,10 +24,44 @@ int main() {
     estudiante1.ciclo = 3;
     estudiante1.promedio = 8.5;
 
-    printf("Nombre: %s\nEdad: %d\nSexo: %s\nCarrera: %s\nCiclo: %f\n",
-           estudiante1.nombre, estudiante1.edad, estudiante1.sexo, estudiante1.carrera, estudiante.promedio);
+    struct Estudiante *estudiante2 = (struct Estudiante *)malloc(sizeof(struct Estudiante));
+    if (estudiante2 == NULL) {
+        fprintf(stderr, "Error: No se pudo asignar memoria.\n");
+        exit(EXIT_FAILURE);
+    }
+        strcpy(estudiante2->nombre, "Maria");
+        estudiante2->edad = 21;
+        estudiante2->promedio = 9.0;
+        strcpy(estudiante2->sexo, "Femenino");
+        strcpy(estudiante2->carrera, "Ingenieria");
+        estudiante2->ciclo = 4;
 
-    return 0;
+        printf("Nombre: %s\nEdad: %d\nSexo: %s\nCarrera: %s\nCiclo: %f\n",
+               estudiante1.nombre, estudiante1.edad, estudiante1.sexo, estudiante1.carrera, estudiante1.promedio);
+        printf("Nombre: %s\nEdad: %d\nSexo: %s\nCarrera: %sCiclo: %f\n",
+               estudiante2->nombre, estudiante2->edad, estudiante2->sexo);
+
+        free(estudiante2);
+
+        union Dato {
+            int i;
+            float f;
+            char str[20];
+        };
+
+        union Dato dato;
+
+        dato.i = 10;
+        printf("dato.i: %d\n", dato.i);
+
+        dato.f = 220.5;
+        printf("dato.f: %.2f\n", dato.f);
+
+        strcpy(dato.str, "C programming");
+        printf("dato.str: %s\n", dato.str);
+
+        return 0;
+    }
 }
 
 
