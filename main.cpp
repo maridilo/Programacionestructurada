@@ -12,5 +12,19 @@ struct Estudiante{
     float promedio;
 };
 
+int main() {
+    struct Estudiante estudiante1;
+    strcpy(estudiante1.nombre, "Juan");
+    estudiante1.edad = 20;
+    strcpy(estudiante1.sexo, "Masculino");
+    strcpy(estudiante1.carrera, "Ingenieria");
+    estudiante1.ciclo = 3;
+    estudiante1.promedio = 8.5;
+
+    printf("Nombre: %s\nEdad: %d\nSexo: %s\nCarrera: %s\nCiclo: %f\n",
+           estudiante1.nombre, estudiante1.edad, estudiante1.sexo, estudiante1.carrera, estudiante.promedio);
+
+    return 0;
+}
 
 
