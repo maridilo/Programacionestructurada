@@ -36,6 +36,12 @@ int main() {
         strcpy(estudiante2->carrera, "Ingenieria");
         estudiante2->ciclo = 4;
 
+    struct Estudiante *punteroEst = &estudiante1;
+    printf("Nombre: %s, Edad: %d, Promedio: %.2f\n", punteroEst->nombre, punteroEst->edad, punteroEst->promedio);
+
+    punteroEst = estudiante2;
+    printf("Nombre: %s, Edad: %d, Promedio: %.2f\n", punteroEst->nombre, punteroEst->edad, punteroEst->promedio);
+
         printf("Nombre: %s\nEdad: %d\nSexo: %s\nCarrera: %s\nCiclo: %f\n",
                estudiante1.nombre, estudiante1.edad, estudiante1.sexo, estudiante1.carrera, estudiante1.promedio);
         printf("Nombre: %s\nEdad: %d\nSexo: %s\nCarrera: %sCiclo: %f\n",
@@ -62,6 +68,6 @@ int main() {
 
         return 0;
     }
-}
 
+ooo
 
