@@ -53,6 +53,14 @@ int main() {
 
         free(estudiante2);
 
+    Estudiante estudiante3;
+    strcpy(estudiante3.nombre, "Pedro");
+    estudiante3.edad = 25;
+    estudiante3.promedio = 9.7;
+    strcpy(estudiante3.sexo, "Masculino");
+    strcpy(estudiante3.carrera, "Ingenieria");
+    estudiante3.ciclo = 5;
+
         union Dato {
             int i;
             float f;
@@ -70,8 +78,7 @@ int main() {
         strcpy(dato.str, "C programming");
         printf("dato.str: %s\n", dato.str);
 
-
-        return 0;
+    return 0;
     }
 
 void imprimirEstudiantePorDireccion(Estudiante *est) {
@@ -80,4 +87,27 @@ void imprimirEstudiantePorDireccion(Estudiante *est) {
 
 void imprimirEstudiantePorReferencia(Estudiante &est) {
     printf("Imprimir Estudiante por referencia: Nombre: %s, Edad: %d, Promedio: %.2f\n", est.nombre, est.edad, est.promedio);
+}
+
+void modificarEstudiantePorDireccion(Estudiante *est) {
+    strcpy(est->nombre, "Pedro");
+    est->edad = 25;
+    est->promedio = 9.7;
+}
+void imprimirEstudiante2(Estudiante *est) {
+    printf("Nombre: %s, Edad: %d, Promedio: %.2f\n", est->nombre, est->edad, est->promedio);
+}
+
+// Función para copiar un estudiante
+    struct Estudiante copiarEstudiante(struct Estudiante original) {
+        struct Estudiante copia;
+
+    strcpy(copia.nombre, original.nombre);
+    copia.edad = original.edad;
+    strcpy(copia.sexo, original.sexo);
+    strcpy(copia.carrera, original.carrera);
+    copia.ciclo = original.ciclo;
+    copia.promedio = original.promedio;
+
+    return copia;
 }
