@@ -52,7 +52,7 @@ int main() {
                estudiante2->nombre, estudiante2->edad, estudiante2->sexo);
 
         free(estudiante2);
-        
+
         union Dato {
             int i;
             float f;
