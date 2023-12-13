@@ -6,6 +6,8 @@
 
 using namespace std;
 
+// Prototipos de funciones
+
 struct Estudiante{
     char nombre[50];
     int edad;
@@ -16,6 +18,7 @@ struct Estudiante{
 };
 
 int main() {
+    // Declaracion de variables
     struct Estudiante estudiante1;
     strcpy(estudiante1.nombre, "Juan");
     estudiante1.edad = 20;
@@ -23,12 +26,12 @@ int main() {
     strcpy(estudiante1.carrera, "Ingenieria");
     estudiante1.ciclo = 3;
     estudiante1.promedio = 8.5;
-
+    // Imprimir datos del estudiante
     struct Estudiante *estudiante2 = (struct Estudiante *)malloc(sizeof(struct Estudiante));
-    if (estudiante2 == NULL) {
+        if (estudiante2 == NULL) {
         fprintf(stderr, "Error: No se pudo asignar memoria.\n");
         exit(EXIT_FAILURE);
-    }
+     }
         strcpy(estudiante2->nombre, "Maria");
         estudiante2->edad = 21;
         estudiante2->promedio = 9.0;
@@ -36,6 +39,7 @@ int main() {
         strcpy(estudiante2->carrera, "Ingenieria");
         estudiante2->ciclo = 4;
 
+        // Imprimir datos del estudiante
     struct Estudiante *punteroEst = &estudiante1;
     printf("Nombre: %s, Edad: %d, Promedio: %.2f\n", punteroEst->nombre, punteroEst->edad, punteroEst->promedio);
 
@@ -48,7 +52,7 @@ int main() {
                estudiante2->nombre, estudiante2->edad, estudiante2->sexo);
 
         free(estudiante2);
-
+        
         union Dato {
             int i;
             float f;
@@ -66,6 +70,14 @@ int main() {
         strcpy(dato.str, "C programming");
         printf("dato.str: %s\n", dato.str);
 
+
         return 0;
     }
 
+void imprimirEstudiantePorDireccion(Estudiante *est) {
+    printf("Imprimir Estudiante por direccion: Nombre: %s, Edad: %d, Promedio: %.2f\n", est->nombre, est->edad, est->promedio);
+}
+
+void imprimirEstudiantePorReferencia(Estudiante &est) {
+    printf("Imprimir Estudiante por referencia: Nombre: %s, Edad: %d, Promedio: %.2f\n", est.nombre, est.edad, est.promedio);
+}
